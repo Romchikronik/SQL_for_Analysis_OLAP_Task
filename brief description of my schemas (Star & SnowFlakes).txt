@@ -1,0 +1,5 @@
+So, firstly I created Star schema. The tables sh.sales and sh.costs can act as the fact tables. The other tables will serve as dimension tables. In the star schema, each dimension table is directly linked to the fact table. 
+
+Secondly I created Snowflake schema. In the snowflake schema, some of these dimension tables are further normalized into smaller tables. For instance, sh.products is splitted into prod_subcategory, prod_category, and supplier tables; sh.countries is splitted into country_region and country_subregion tables; sh.promotions is splitted into promo_category and promo_subcategory. This schema is more complex and normalized compared to the star schema.
+
+I attached two images for each (Star and SnowFlake). Just different variants.
