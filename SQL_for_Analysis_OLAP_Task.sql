@@ -24,10 +24,13 @@ JOIN
     sh.customers c ON s.cust_id = c.cust_id
 JOIN
     sh.countries co ON c.country_id = co.country_id
+JOIN
+    sh.products p ON s.prod_id = p.prod_id
 WHERE
-    s.prod_id = 13 -- we can replace 13 with any actual product ID that we want (but average_quantity_sold will be the same because in sh.sales quantity_sold for every 1.00)
+    p.prod_name = 'Mouse Pad' 
 GROUP BY
     co.country_region;
+
 
 
 -- Find the top five customers with the highest total sales amount
@@ -44,4 +47,4 @@ GROUP BY
     c.cust_id, c.cust_first_name, c.cust_last_name
 ORDER BY
     total_sales DESC
-LIMIT 5;
+FETCH FIRST 5 ROWS ONLY;
